@@ -2,14 +2,19 @@ import React from "react"
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import Home from "@navigation/home"
 import Products from "@navigation/products"
+import { View } from "react-native"
 import { Octicons } from "@expo/vector-icons"
-import { useSafeAreaInsets } from "react-native-safe-area-context"
 
 const HomeTabs = createBottomTabNavigator()
 const screenOptions = {
+	tabBarStyle: {
+		borderTopWidth: 0,
+		marginTop: 15,
+	},
 	tabBarShowLabel: false,
 	headerShown: false,
 }
+
 const HomeArray = [
 	{
 		name: "Home",
@@ -17,11 +22,13 @@ const HomeArray = [
 		options: {
 			tabBarIcon: ({ color, size }) => {
 				return (
-					<Octicons
-						name="home"
-						size={size}
-						color={color}
-					/>
+					<View>
+						<Octicons
+							name="apps"
+							size={size}
+							color={color}
+						/>
+					</View>
 				)
 			},
 		},
@@ -30,13 +37,15 @@ const HomeArray = [
 		name: "Products",
 		component: Products,
 		options: {
-			tabBarIcon: ({ color, size }) => {
+			tabBarIcon: ({ color, size, focused }) => {
 				return (
-					<Octicons
-						name="list-unordered"
-						size={size}
-						color={color}
-					/>
+					<View>
+						<Octicons
+							name="list-unordered"
+							size={size}
+							color={color}
+						/>
+					</View>
 				)
 			},
 		},

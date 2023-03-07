@@ -2,7 +2,9 @@
 	{
 		"id": 1,
 		"name": "Holdlamis",
-		"urlPicture": "http://dummyimage.com/151x100.png/cc0000/ffffff"
+		"urlPicture": "http://dummyimage.com/151x100.png/cc0000/ffffff",
+		"price": 259.99,
+		"unit": "€"
 	},
 	{
 		"id": 2,
