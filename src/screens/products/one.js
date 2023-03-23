@@ -80,7 +80,7 @@ const ARscreen = ({ navigation }) => {
 	return (
 		<View style={oneStyles.webView}>
 			<WebView
-				source={{ uri: "https://google.fr/" }}
+				source={{ uri: "https://ar-app-three.vercel.app" }}
 				style={{ marginTop: 24, borderTopLeftRadius: 10, borderTopRightRadius: 10 }}
 			/>
 			<View
