@@ -1,11 +1,13 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import { createStackNavigator } from "@react-navigation/stack"
 import Home from "@navigation/home"
 import Products from "@navigation/products"
 import { View } from "react-native"
-import { Octicons } from "@expo/vector-icons"
+import { MaterialCommunityIcons } from "@expo/vector-icons"
+
 import Register from "@screens/auth/register/Register"
+import { AsyncStorage } from "@react-native-async-storage/async-storage"
 
 const HomeTabs = createBottomTabNavigator()
 const Stack = createStackNavigator()
@@ -27,8 +29,8 @@ const HomeArray = [
 			tabBarIcon: ({ color, size }) => {
 				return (
 					<View>
-						<Octicons
-							name="apps"
+						<MaterialCommunityIcons
+							name="newspaper-variant-multiple-outline"
 							size={size}
 							color={color}
 						/>
@@ -44,8 +46,8 @@ const HomeArray = [
 			tabBarIcon: ({ color, size, focused }) => {
 				return (
 					<View>
-						<Octicons
-							name="list-unordered"
+						<MaterialCommunityIcons
+							name="coffee-maker"
 							size={size}
 							color={color}
 						/>
@@ -62,8 +64,8 @@ const Main = () => {
 
 	useEffect(() => {
 		const getLoginToken = async () => {
-			const token = await AsyncStorage.getItem("loginToken")
-			setLoginToken(token)
+			const token = await AsyncStorage?.getItem("loginToken")
+			setLoginToken(token && token)
 		}
 		getLoginToken()
 	}, [])
@@ -78,7 +80,7 @@ const Main = () => {
 		handleTokenChange()
 	}, [loginToken])
 
-	if (loggedIn) {
+	if (true) {
 		// if the user is logged in, render the navigation tabs
 		return (
 			<HomeTabs.Navigator screenOptions={screenOptions}>

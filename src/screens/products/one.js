@@ -1,7 +1,7 @@
 import { Text, ScrollView, ImageBackground, View, TouchableHighlight } from "react-native"
 import React, { useEffect, useState } from "react"
 import { oneStyles } from "./styles"
-import { MaterialCommunityIcons, AntDesign } from "@expo/vector-icons"
+import { MaterialCommunityIcons } from "@expo/vector-icons"
 import { createNativeStackNavigator } from "@react-navigation/native-stack"
 import WebView from "react-native-webview"
 
@@ -37,10 +37,9 @@ const One = ({ route, navigation }) => {
 	function getData(id) {
 		// fetch data from API
 		setData({
-			imageSrc: "https://picsum.photos/400/300",
-			title: "Title",
-			description:
-				"Esse enim est officia voluptate nulla officia laboris minim sit. Sint deserunt velit velit culpa deserunt cillum dolor. Aute elit ut eiusmod aliquip consequat in quis dolor pariatur. Aliquip ad nisi in reprehenderit nulla deserunt minim culpa minim eiusmod nulla. Ut labore tempor velit consequat commodo commodo exercitation. Mollit ad nostrud dolore et dolor ea deserunt sint sunt culpa enim quis labore quis minim. Esse dolor duis ut eu incididunt ex tempor. Enim ex reprehenderit Lorem sit consequat nisi excepteur id quis.",
+			imageSrc: "https://media.but.fr/images_produits/produit-zoom/4894223182126_P.jpg",
+			title: "Holdlamis",
+			description: "Voici notre toute derniere cafétière nouvelle génération !",
 		})
 	}
 
