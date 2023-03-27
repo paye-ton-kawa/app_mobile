@@ -1,52 +1,65 @@
-import { useNavigation } from "@react-navigation/native"
 import React from "react"
-import { View, Text, StyleSheet, TouchableOpacity, ImageBackground } from "react-native"
+import { Image, StyleSheet, View } from "react-native"
+import { Card, Text } from "@ui-kitten/components"
+import { useNavigation } from "@react-navigation/native"
 
-const Item = ({ id, name, urlPicture, navigateTo }) => {
-	const { navigate } = useNavigation()
-	return (
-		<View style={style.container}>
-			<TouchableOpacity
-				style={style.item}
-				onPress={() => navigate(navigateTo, { idProduct: id })}
+const Footer = (name, price, unit) => (
+	<View>
+		<View style={styles.footer}>
+			<Text
+				category="h6"
+				style={styles.footerText}
 			>
-				<ImageBackground
-					source={{ uri: urlPicture }}
-					style={style.ImageBackground}
+				{name}
+			</Text>
+			{price && unit && (
+				<Text
+					category="s1"
+					style={styles.footerText}
 				>
-					<View style={style.innerContainer}>
-						<Text style={style.name}>{name}</Text>
-					</View>
-				</ImageBackground>
-			</TouchableOpacity>
+					{price}
+					{unit}
+				</Text>
+			)}
 		</View>
+	</View>
+)
+
+export default Item = ({ id, name, price, unit, urlPicture, navigateTo }) => {
+	const { navigate } = useNavigation()
+
+	return (
+		<Card
+			style={styles.card}
+			footer={Footer(name, price, unit)}
+			onPress={() => navigate(navigateTo, { idProduct: id })}
+		>
+			<Image
+				source={{ uri: urlPicture }}
+				style={styles.imageCard}
+			/>
+		</Card>
 	)
 }
 
-export default Item
-
-const style = StyleSheet.create({
-	container: {
-		width: "50%",
-	},
-	item: {
-		margin: 5,
-		backgroundColor: "white",
+const styles = StyleSheet.create({
+	card: {
+		flex: 1,
+		margin: 10,
 		borderWidth: 1,
-		borderColor: "rgba(0,0,0, 0.1)",
-		borderRadius: 5,
+		borderColor: "rgba(0, 0, 0, 0.1)",
 	},
-	ImageBackground: {
-		borderRadius: 5,
-		overflow: "hidden",
+	imageCard: {
+		width: "100%",
 		aspectRatio: 1,
 	},
-	innerContainer: {
-		flex: 1,
-		justifyContent: "center",
-		alignItems: "center",
-		padding: 10,
-		backgroundColor: "rgba(0,0,0, 0.4)",
+	footer: {
+		display: "flex",
+		flexDirection: "row",
+		justifyContent: "space-between",
 	},
-	name: { fontSize: 32, fontWeight: "bold", color: "white", textShadowColor: "black" },
+	footerText: {
+		textAlign: "center",
+		fontSize: 18,
+	},
 })

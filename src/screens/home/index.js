@@ -5,7 +5,16 @@ import styles from "./styles"
 const HomeScreen = () => {
 	return (
 		<View style={styles.container}>
-			<Text>HomeScreen</Text>
+			<Text
+				style={{
+					fontSize: 40,
+					fontWeight: "bold",
+					color: "black",
+					paddingHorizontal: 20,
+				}}
+			>
+				Les dernieres actualités !
+			</Text>
 		</View>
 	)
 }

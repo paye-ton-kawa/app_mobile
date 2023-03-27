@@ -14,6 +14,8 @@ const ProductsItemContainer = (props) => {
 					key={item.id}
 					id={item.id}
 					name={item.name}
+					price={item.price}
+					unit={item.unit}
 					urlPicture={item.urlPicture}
 					navigateTo={navigateTo}
 				/>
